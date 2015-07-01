@@ -8,7 +8,7 @@ public class ServiceImpl implements Service {
 		if (name == null || "".equals(name)) {
 			throw new BaseException("Empty or null name");
 		}
-		return "Welcome: " + name;
+		return "Welcome onboard: " + name;
 	}
 	
 /*	public String login(String email, String password) throws BaseException {
