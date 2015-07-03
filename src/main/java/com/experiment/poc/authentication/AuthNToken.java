@@ -3,7 +3,6 @@ package com.experiment.poc.authentication;
 /**
  * Authentication Token
  * @author Navin Naidu
- * @version $Id: $
  */
 public class AuthNToken {
 

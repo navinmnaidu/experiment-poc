@@ -3,7 +3,6 @@ package com.experiment.poc.authentication;
 /**
  * Authentication Manager
  * @author Navin Naidu
- * @version $Id: $
  * @param <T> type
  */
 public interface AuthenticationManager<T> {
