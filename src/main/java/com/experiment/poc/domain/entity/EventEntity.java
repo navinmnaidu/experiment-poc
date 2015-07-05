@@ -34,14 +34,6 @@ public class EventEntity {
     @Column(name="createdBy", nullable = false)
     private String createdBy; //TODO: change this to person reference?
     
-    @Column(name="startTime", nullable = false)
-    @Type(type = "org.jadira.usertype.dateandtime.threeten.PersistentZonedDateTime")
-    private ZonedDateTime startTime;
-    
-    @Column(name="endTime", nullable = false)
-    @Type(type = "org.jadira.usertype.dateandtime.threeten.PersistentZonedDateTime")
-    private ZonedDateTime endTime;
-    
     @OneToMany
     private Set<PersonEntity> participants;
 }
