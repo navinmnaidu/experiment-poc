@@ -35,9 +35,9 @@
 		<jaxrs:providers>
 			<ref bean="jsonProvider" />
 		</jaxrs:providers>
-		<jaxrs:inInterceptors>
+		<!--jaxrs:inInterceptors>
 			<ref bean="authenticationInterceptor" />
-		</jaxrs:inInterceptors>
+		</jaxrs:inInterceptors-->
 	</jaxrs:server>
 
 </beans>

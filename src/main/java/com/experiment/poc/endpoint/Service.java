@@ -3,14 +3,18 @@ package com.experiment.poc.endpoint;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
+import com.experiment.poc.dto.GetWelcomeMessageResponse;
+import com.experiment.poc.dto.LoginRequest;
+import com.experiment.poc.dto.LoginResponse;
+import com.experiment.poc.exception.BaseException;
+
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-
-import com.experiment.poc.dto.GetWelcomeMessageResponse;
-import com.experiment.poc.exception.BaseException;
 
 /**
  * Service interface
@@ -44,4 +48,11 @@ public interface Service {
 	@Consumes(APPLICATION_FORM_URLENCODED)
 	String login(@FormParam("email") String email, @FormParam("password") String password) throws BaseException;
 */
+	
+	@POST
+	@Path("/login")
+	@Consumes(APPLICATION_JSON)
+	//@Produces(APPLICATION_JSON)
+	LoginResponse login(LoginRequest request) throws BaseException;
+	
 }
