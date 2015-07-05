@@ -32,7 +32,7 @@ public class EventEntity {
     private String description;
     
     @Column(name="createdBy", nullable = false)
-    private String createdBy; //TODO: change this to person instance?
+    private String createdBy; //TODO: change this to person reference?
     
     @Column(name="startTime", nullable = false)
     @Type(type = "org.jadira.usertype.dateandtime.threeten.PersistentZonedDateTime")
