@@ -13,7 +13,6 @@ import org.apache.cxf.phase.Phase;
 /**
  * Authentication interceptor used to authenticate APIs
  * @author Navin Naidu
- * @version $Id: $
  */
 public class AuthenticationInterceptor extends AbstractPhaseInterceptor<Message> {
 

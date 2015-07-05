@@ -9,7 +9,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
+import com.experiment.poc.dto.GetWelcomeMessageResponse;
 import com.experiment.poc.exception.BaseException;
+
+/**
+ * Service interface
+ * @author Navin Naidu
+ */
 
 @Path("/api")
 @Consumes({APPLICATION_JSON})
@@ -24,8 +30,7 @@ public interface Service {
 	 */
 	@GET
 	@Path("/welcome")
-	@Produces(TEXT_PLAIN)
-	String getWelcomeMessage(@QueryParam("name") String name) throws BaseException;
+	GetWelcomeMessageResponse getWelcomeMessage(@QueryParam("name") String name) throws BaseException;
 
 	/**
 	 * Returns a welcome message
