@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Authentication Manager implementation
@@ -18,21 +18,21 @@ public class ServiceAuthenticationManager implements AuthenticationManager<AuthN
 
 	private static final String FILE_PATH = "authNToken.txt";
 	private static final String UTF_8 = "UTF-8";
-	private Set<String> authNTokenSet;
+	private Map<String, String> authMapping;
 
 	/**
 	 * public constructor 
 	 */
 	public ServiceAuthenticationManager() {
-		authNTokenSet = loadAuthNToken();
+		authMapping = loadAuthNToken();
 	}
 
 	/**
 	 * load authentication token
 	 * @return set of authentication token
 	 */
-	public Set<String> loadAuthNToken() {
-		Set<String> authNTokenSet = new HashSet<String>();
+	public Map<String,String> loadAuthNToken() {
+		Map<String, String> authMapping = new HashMap<String, String>();
 		InputStream inputStream = 
 			Thread.currentThread().getContextClassLoader().getResourceAsStream(FILE_PATH);
 		if (inputStream != null) {
@@ -40,7 +40,8 @@ public class ServiceAuthenticationManager implements AuthenticationManager<AuthN
 				BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, UTF_8));
 				String token;
 				while((token = reader.readLine()) != null) {
-					authNTokenSet.add(token);
+				    String [] mapping = token.split("=");
+				    authMapping.put(mapping[0], mapping[1]);
 				}
 			}
 			catch (UnsupportedEncodingException e) {
@@ -64,13 +65,17 @@ public class ServiceAuthenticationManager implements AuthenticationManager<AuthN
 		else {
 			System.out.println(FILE_PATH + ": not found");
 		}
-		return authNTokenSet;
+		return authMapping;
 	}
 
 	public AuthNToken authenticate(AuthNToken authNToken) {
-		boolean authenticated = authNTokenSet.contains(authNToken.getAuthNToken());
+		boolean authenticated = authMapping.containsValue(authNToken.getAuthNToken());
 		authNToken.setAuthenticated(authenticated);
 		return authNToken;
+	}
+	
+	public String getAuthToken(String email) {
+	    return authMapping.get(email);
 	}
 
 }
