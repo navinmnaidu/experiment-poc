@@ -1,8 +1,5 @@
 package com.experiment.poc.domain.entity;
 
-import org.hibernate.annotations.Type;
-
-import java.time.ZonedDateTime;
 import java.util.Set;
 
 import javax.persistence.Column;

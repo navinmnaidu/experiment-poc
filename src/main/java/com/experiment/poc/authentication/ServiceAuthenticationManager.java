@@ -74,8 +74,11 @@ public class ServiceAuthenticationManager implements AuthenticationManager<AuthN
 		return authNToken;
 	}
 	
-	public String getAuthToken(String email) {
-	    return authMapping.get(email);
+	public String getAuthToken(String email, String password) {
+		if (!"P@ssw0rd123".equals(password)) {
+			return null;
+		}
+		return authMapping.get(email);
 	}
 
 }

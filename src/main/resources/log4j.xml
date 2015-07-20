@@ -24,6 +24,11 @@
 		<appender-ref ref="ROLL" />
 	</logger>
 
+	<logger name="org.apache" additivity="false">
+		<level value="DEBUG"/>
+		<appender-ref ref="ROLL" />
+	</logger>
+
 	<root>
 		<priority value ="ERROR" />
 		<appender-ref ref="CONSOLE" />

@@ -2,6 +2,7 @@ package com.experiment.poc.dto;
 
 /**
  * @author Vikram Purohit
+ * @param <TYPE> type parameter
  *
  */
 public class BaseResponse<TYPE> {

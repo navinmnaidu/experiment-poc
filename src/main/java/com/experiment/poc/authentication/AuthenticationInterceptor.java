@@ -39,8 +39,8 @@ public class AuthenticationInterceptor extends AbstractPhaseInterceptor<Message>
 	public AuthenticationInterceptor() {
 		super(Phase.UNMARSHAL);
 		unprotectedMethodURIs = new HashSet<String>();
-		unprotectedMethodURIs.add("/expirement-poc/api/login");
-		unprotectedMethodURIs.add("/expirement-poc/api/register");
+		unprotectedMethodURIs.add("/experiment-poc/api/login");
+		unprotectedMethodURIs.add("/experiment-poc/api/register");
 	}
 
 	public void handleMessage(Message message) throws Fault {

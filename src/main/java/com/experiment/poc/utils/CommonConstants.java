@@ -6,5 +6,8 @@ package com.experiment.poc.utils;
  */
 public interface CommonConstants {
 
+	/**
+	 * empty string.
+	 */
 	String EMPTY_STRING = "";
 }
